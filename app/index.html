@@ -1,5 +1,26 @@
 <!doctype html>
-<html>
-<head></head>
-<body></body>
+<html data-ng-app="eventsApp">
+	<head>
+		<title>Events Registration</title>
+		<link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="/css/app.css">
+		
+	</head>
+	<body>
+		<div class="container">
+			<div data-ng-controller="EventController">
+				<ul data-ng-repeat="event in events">
+					<li>{{event.name}} - {{event.id}}</li>
+				</ul>
+
+			</div>
+		</div>
+
+		<script src="lib/jquery-2.1.0.js"></script>
+		<script src="lib/underscore.js"></script>
+		<script src="lib/bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
+		<script src="lib/angular.min.js"></script>
+		<script src="js/app.js"></script>
+		<script src="js/controllers/EventController.js"></script>
+	</body>
 </html>
