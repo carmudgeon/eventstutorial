@@ -1,22 +1,52 @@
 <!doctype html>
 <html data-ng-app="eventsApp">
 	<head>
-		<title>Events Registration</title>
+		<title>Events Tutorial</title>
 		<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="css/app.css">		
 	</head>
 	<body>
 		<div class="container">
-			<div class="navbar">
-				<div class="navbar-inner">
-					<ul class="nav">
+			<nav class="navbar navbar-inverse" role="navigation">
+			  <div class="container-fluid">
+			    <!-- Brand and toggle get grouped for better mobile display -->
+			    <div class="navbar-header">
+			      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			        <span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			      </button>
+			      <a class="navbar-brand" href="#">Events Tutorial</a>
+			    </div>
 
-					</ul>
-				</div>
-			</div>
+			    <!-- Collect the nav links, forms, and other content for toggling -->
+			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			      <ul class="nav navbar-nav">
+			        <li class="active"><a href="#">Link</a></li>
+			        <li><a href="#">Link</a></li>			        
+			      </ul>
+			      <form class="navbar-form navbar-left" role="search">
+			        <div class="form-group">
+			          <input type="text" class="form-control" placeholder="Search">
+			        </div>
+			        <button type="submit" class="btn btn-default">Submit</button>
+			      </form>			      
+			    </div><!-- /.navbar-collapse -->
+			  </div><!-- /.container-fluid -->
+			</nav>
+
+
+
+
+
+
+
+
 			<div data-ng-controller="EventController">
 				
 				<div data-ng-repeat="event in events">
+					<img ng-src="{{event.imageUrl}}" alt="{{event.name}}"/>
 					<div class="row">
 						<div class="span11">
 							<h2>{{event.name}}</h2>
@@ -35,6 +65,35 @@
 							</address>							
 						</div>
 					</div>
+
+					<hr />
+
+					<h3>Sessions</h3>
+					<ul class="thumbnails">
+						<li ng-repeat="session in event.sessions">
+							<div class="row session">
+								<div class="span0 well votingWidget">
+									<div class="votingButton">
+										<i class="icon-chevron-up icon-white"></i>
+									</div>
+									<div class="badge badge-inverse">
+										<div>{{session.upVoteCount}}</div>
+									</div>
+									<div class="votingButton">
+										<i class="icon-chevron-down"></i>
+									</div>
+								</div>
+
+								<div class="well span9">
+									<h4 class="well-title">{{session.name}}</h4>
+									<h6 style="margin-top:-10px">{{session.creatorName}}</h6>
+									<span>Duration:{{session.duration}}</span>
+									<span>Level: {{session.level}}</span>
+									<p>{{session.abstract}}</p>
+								</div>
+							</div>							
+						</li>
+					</ul>
 				</div>
 			</div>
 		</div>
