@@ -2,6 +2,15 @@
 var eventControllers = angular.module('eventsApp.controllers',[]);
 
 eventControllers.controller('EventController',function($scope){
+
+	$scope.upVoteSession = function(session){
+		session.upVoteCount++;
+	};
+
+	$scope.downVoteSession = function(session){
+		session.upVoteCount--;
+	};
+
 	$scope.events = [
 		{name:"Angular Boot Camp part 1",date:"1/1/2014",time:'10:30 am',
 			imageUrl:'img/AngularJS-large.png',
@@ -24,7 +33,7 @@ eventControllers.controller('EventController',function($scope){
 					creatorName:'John Doe',
 					duration:'30 mins',
 					level:'Introductory',
-					abstract:'This session will take a closer look at scopes',
+					abstract:'This session will take a closer look at scopes. Learn what they do, how they do it, and how to get them to do it for you.',
 					upVoteCount:0
 				},
 				{
@@ -32,12 +41,12 @@ eventControllers.controller('EventController',function($scope){
 					creatorName:'Jane Doe',
 					duration:'2 Hours',
 					level:'Intermediate',
-					abstract:'Controllers are the beginning of everything angular does...',
+					abstract:'Controllers are the beginning of everything angular does. Learn how to craft controllers that will win the respect of your friends and neighbors.',
 					upVoteCount:0
 				}
 			]
 		},
-		{name:"Angular Boot Camp part 2",date:"1/1/2014",time:'11:30 am',
+		{name:"Angular Boot Camp part 2",date:"1/2/2014",time:'11:30 am',
 			imageUrl:'img/AngularJS-large.png',
 			location:{
 				address:'Google Headquarters',
@@ -58,7 +67,7 @@ eventControllers.controller('EventController',function($scope){
 					creatorName:'John Doe',
 					duration:'30 mins',
 					level:'Introductory',
-					abstract:'This session will take a closer look at scopes',
+					abstract:'This session will take a closer look at scopes. Learn what they do, how they do it, and how to get them to do it for you.',
 					upVoteCount:0
 				},
 				{
@@ -66,12 +75,12 @@ eventControllers.controller('EventController',function($scope){
 					creatorName:'Jane Doe',
 					duration:'2 Hours',
 					level:'Intermediate',
-					abstract:'Controllers are the beginning of everything angular does...',
+					abstract:'Controllers are the beginning of everything angular does. Learn how to craft controllers that will win the respect of your friends and neighbors.',
 					upVoteCount:0
 				}
 			]
 		},
-		{name:"Angular Boot Camp part 3",date:"1/1/2014",time:'12:30 am',
+		{name:"Angular Boot Camp part 3",date:"1/3/2014",time:'12:30 am',
 			imageUrl:'img/AngularJS-large.png',
 			location:{
 				address:'Google Headquarters',
@@ -92,7 +101,7 @@ eventControllers.controller('EventController',function($scope){
 					creatorName:'John Doe',
 					duration:'30 mins',
 					level:'Introductory',
-					abstract:'This session will take a closer look at scopes',
+					abstract:'This session will take a closer look at scopes. Learn what they do, how they do it, and how to get them to do it for you.',
 					upVoteCount:0
 				},
 				{
@@ -100,7 +109,7 @@ eventControllers.controller('EventController',function($scope){
 					creatorName:'Jane Doe',
 					duration:'2 Hours',
 					level:'Intermediate',
-					abstract:'Controllers are the beginning of everything angular does...',
+					abstract:'Controllers are the beginning of everything angular does. Learn how to craft controllers that will win the respect of your friends and neighbors.',
 					upVoteCount:0
 				}
 			]
