@@ -15,8 +15,15 @@ eventControllers.controller('EventController',function EventController($scope,ev
 		session.upVoteCount--;
 	};
 
-	$scope.events = eventData.events;
-	$scope.event = $scope.events[0];
+	eventData.getEvents().then(
+		function(event){
+			$scope.events = event;
+		},
+		function(statusCode){
+			console.log(statusCode);
+		});
+
+	$scope.event = {};
 
 	$scope.sortOrder = 'name';
 });
