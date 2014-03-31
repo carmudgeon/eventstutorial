@@ -1,0 +1,25 @@
+<div class="container-fluid">
+	<div data-ng-repeat="event in events">
+		<div class="well">
+			<div class="row">
+				<div class="col-xs-12">
+					<h2><a href="#/EventDetails/{{event.name}}">{{event.name | uppercase}}</a> - {{event.date | date:'medium'}}</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-3">
+					<div><strong>Date: </strong>{{ event.date | date:'medium'}}</div>
+					<div><strong>Time: </strong>{{ event.time}}</div>
+					<div><strong>Price: </strong>{{ event.price | currency}}</div>
+				</div>
+				<div class="col-xs-4">
+					<address>
+						<strong>Address:</strong><br/>
+						{{event.location.address}}<br/>
+						{{event.location.city}},{{event.location.province}}
+					</address>							
+				</div>
+			</div>		
+		</div>
+	</div>
+</div>
