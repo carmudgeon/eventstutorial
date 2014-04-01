@@ -1,7 +1,8 @@
 <img ng-src="{{event.imageUrl}}" alt="{{event.name}}"/>
+<button class="btn" ng-click="reload()">Reload button</button>
 <div class="row">
 	<div class="col-xs-12">
-		<h2><a href="#/EventDetails/{{event.name}}">{{event.name | uppercase}}</a> - {{event.date | date:'mediumDate'}}</h2>
+		<h2><a href="#/eventDetails/{{event.name}}">{{event.name | uppercase}}</a> - {{event.date | date:'mediumDate'}}</h2>
 	</div>
 </div>
 <div class="row">
@@ -34,6 +35,8 @@ Show:
 	<option selected value="intermediate">Intermediate</option>
 	<option selected value="advanced">advanced</option>
 </select>
+
+<input ng-model="query" value=""/>
 
 <ul class="list-unstyled">
 	<li  ng-repeat="session in event.sessions | orderBy : sortOrder | filter : query">

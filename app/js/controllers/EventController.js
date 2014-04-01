@@ -1,6 +1,6 @@
 'use strict';
 
-eventControllers.controller('EventController',function EventController($scope,$routeParams,eventData){
+eventControllers.controller('EventController',function EventController($scope,$routeParams,$route,eventData){
 
 	$scope.setCurrentEvent = function(currentEvent){
 		$scope.currentEvent = currentEvent;
@@ -27,4 +27,8 @@ eventControllers.controller('EventController',function EventController($scope,$r
 	);
 	
 	$scope.sortOrder = 'name';
+
+	$scope.reload= function(){
+		$route.reload();
+	}
 });

@@ -1,7 +1,7 @@
 'use strict';
 
 eventServices.factory('eventData', function($resource){
-	var resource = $resource('../app/data/:id',{id:'@id'});
+	var resource = $resource('../data/:id',{id:'@id'});
 	return {
 		getEvent: function(eventId){
 			return  resource.get({id:eventId});

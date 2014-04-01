@@ -27,5 +27,5 @@ eventsApp.config(['$routeProvider', function($routeProvider) {
 		templateUrl: 'partials/EventDetails.html',
 		controller: 'EventController'
 	});
-	$routeProvider.otherwise({redirectTo: '/events'});
+	$routeProvider.otherwise({redirectTo: '/events'});	
 }]);
