@@ -2,21 +2,30 @@
 
 var eventsApp = angular.module('eventsApp',[
 	'ngRoute',
-	'eventsApp.controllers'
+	'ngResource',
+	'eventsApp.services',
+	'eventsApp.controllers',
 ]);
 
-/*
+var eventControllers = angular.module('eventsApp.controllers',[]);
+
+var eventServices = angular.module('eventsApp.services',[]);
+
 eventsApp.config(['$routeProvider', function($routeProvider) {
-	$routeProvider.otherwise({redirectTo: '/events'});
+	$routeProvider.when('/newEvent', 
+	{
+		templateUrl: 'partials/NewEvent.html',
+		controller: 'EditEventController'
+	});
 	$routeProvider.when('/events', 
-		{
-			templateUrl: 'partials/EventsList.html',
-			controller: 'EventController'
-		});
-	$routeProvider.when('/eventDetails',
-		{
-			templateUrl: 'partials/EventDetails.html',
-			controller: 'EventController'
-		});
+	{
+		templateUrl: 'partials/EventsList.html',
+		controller: 'EventListController'
+	});
+	$routeProvider.when('/eventDetails/:eventId',
+	{
+		templateUrl: 'partials/EventDetails.html',
+		controller: 'EventController'
+	});
+	$routeProvider.otherwise({redirectTo: '/events'});
 }]);
-*/

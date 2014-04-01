@@ -1,7 +1,6 @@
 'use strict';
-var eventControllers = angular.module('eventsApp.controllers',[]);
 
-eventControllers.controller('EventController',function EventController($scope,eventData){
+eventControllers.controller('EventController',function EventController($scope,$routeParams,eventData){
 
 	$scope.setCurrentEvent = function(currentEvent){
 		$scope.currentEvent = currentEvent;
@@ -13,17 +12,19 @@ eventControllers.controller('EventController',function EventController($scope,ev
 
 	$scope.downVoteSession = function(session){
 		session.upVoteCount--;
-	};
+	};    
 
-	eventData.getEvents().then(
-		function(event){
-			$scope.events = event;
+
+	eventData.getEvent($routeParams.eventId).$promise.then(
+		function(response){ 
+			console.log(response);
+			$scope.event = response;
+			
 		},
-		function(statusCode){
-			console.log(statusCode);
-		});
-
-	$scope.event = {};
-
+		function(response){
+			console.log(response)
+		}
+	);
+	
 	$scope.sortOrder = 'name';
 });

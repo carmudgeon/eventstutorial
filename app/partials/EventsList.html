@@ -1,25 +1,33 @@
 <div class="container-fluid">
-	<div data-ng-repeat="event in events">
-		<div class="well">
-			<div class="row">
-				<div class="col-xs-12">
-					<h2><a href="#/EventDetails/{{event.name}}">{{event.name | uppercase}}</a> - {{event.date | date:'medium'}}</h2>
+	<h1>Events</h1>
+	<hr />
+	<hr />
+	<ul class="list-unstyled">
+		<li data-ng-repeat="event in events">
+			<!--a href="#/eventDetails/{{event.name}}"-->
+			<a href="#/eventDetails/{{event.id}}.json">
+				<div class="well">
+					<div class="row"> 
+						<h2>{{event.name}}</h2>
+					</div>
+					<div class="row"> 
+						<span class="col-md-1">Date: </span>
+						<span>{{event.date | date:'medium'}}</span>
+					</div>
+					<div class="row"> 
+						<span class="col-md-1">Time: </span>
+						<span>{{event.time}}</span>
+					</div>
+					<div class="row"> 
+						<span class="col-md-1">Location: </span>
+						<span>{{event.location.address}}</span>
+					</div>
+					<div class="row"> 
+						<span class="col-md-1">&nbsp;</span>
+						<span>{{ event.location.city}}, {{event.location.province}}</span>
+					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-3">
-					<div><strong>Date: </strong>{{ event.date | date:'medium'}}</div>
-					<div><strong>Time: </strong>{{ event.time}}</div>
-					<div><strong>Price: </strong>{{ event.price | currency}}</div>
-				</div>
-				<div class="col-xs-4">
-					<address>
-						<strong>Address:</strong><br/>
-						{{event.location.address}}<br/>
-						{{event.location.city}},{{event.location.province}}
-					</address>							
-				</div>
-			</div>		
-		</div>
-	</div>
+			</a>
+		</li>
+	</ul>
 </div>

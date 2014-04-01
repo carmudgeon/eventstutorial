@@ -1,17 +1,17 @@
-eventsApp.factory('eventData', function($http,$q){
-	return {
-		getEvents : function(){
-			var deferred = $q.defer();
-			
-			$http({method:'GET', url:'data/events.json'}).
-			success(function(data,status,headers,config){
-				deferred.resolve(data);
-			}).
-			error(function(data,status,headers,config){
-				deferred.reject(status);
-			});
+'use strict';
 
-			return deferred.promise;
+eventServices.factory('eventData', function($resource){
+	var resource = $resource('../app/data/:id',{id:'@id'});
+	return {
+		getEvent: function(eventId){
+			return  resource.get({id:eventId});
+		},
+		saveEvent: function(event){
+			return resource.save(event);
+		},
+		getAllEvents: function(){
+			/*return resource.query();*/
+			return resource.get({id:'events.json'});
 		}
 	};
 });
