@@ -5,11 +5,14 @@ var eventsApp = angular.module('eventsApp',[
 	'ngResource',
 	'eventsApp.services',
 	'eventsApp.controllers',
+	'eventsApp.directives'
 ]);
 
 var eventControllers = angular.module('eventsApp.controllers',[]);
 
 var eventServices = angular.module('eventsApp.services',[]);
+
+var directives = angular.module('eventsApp.directives',[]);
 
 eventsApp.config(['$routeProvider', function($routeProvider) {
 	$routeProvider.when('/newEvent', 
